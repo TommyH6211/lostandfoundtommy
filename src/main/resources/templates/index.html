@@ -1,13 +1,114 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lost & Found Portal</title>
 
-<title>Lost & Found</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .add-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .add-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            padding: 6px 10px;
+            border: 1px solid black;
+            text-decoration: none;
+            color: black;
+            border-radius: 4px;
+            margin: 2px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #e6e6e6;
+        }
+
+    </style>
+
+</head>
+
 <body>
 
-<h1>Lost & Found Home Page</h1>
+<h1>Lost & Found Portal</h1>
 
-<p th:text="${message}"></p>
+<a class="add-button" href="/newItem">
+    Add New Item
+</a>
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Last Found</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="item : ${items}">
+
+        <td th:text="${item.id}"></td>
+
+        <td th:text="${item.title}"></td>
+
+        <td th:text="${item.description}"></td>
+
+        <td th:text="${item.lastFound}"></td>
+
+        <td th:text="${item.status}"></td>
+
+        <td>
+
+            <a class="button"
+               th:href="@{/items/toggle/{id}(id=${item.id})}"
+               th:text="${item.status == 'Not Retrieved'} ? 'Mark Retrieved' : 'Mark Not Retrieved'">
+            </a>
+
+            <a class="button"
+               th:href="@{/items/delete/{id}(id=${item.id})}">
+                Delete
+            </a>
+
+        </td>
+
+    </tr>
+
+</table>
 
 </body>
 </html>
-

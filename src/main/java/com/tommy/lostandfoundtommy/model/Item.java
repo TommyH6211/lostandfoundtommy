@@ -11,18 +11,16 @@ public class Item {
 
     private String title;
     private String description;
-    private String category;
-    private String location;
+    private String lastFound;
     private String status;
 
     public Item() {
     }
 
-    public Item(String title, String description, String category, String location, String status) {
+    public Item(String title, String description, String lastFound, String status) {
         this.title = title;
         this.description = description;
-        this.category = category;
-        this.location = location;
+        this.lastFound = lastFound;
         this.status = status;
     }
 
@@ -50,20 +48,12 @@ public class Item {
         this.description = description;
     }
 
-    public String getCategory() {
-        return category;
+    public String getLastFound() {
+        return lastFound;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLastFound(String location) {
+        this.lastFound = location;
     }
 
     public String getStatus() {
