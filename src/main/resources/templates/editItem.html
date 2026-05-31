@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Item</title>
+</head>
+<body>
+
+<h1>Edit Item</h1>
+
+<form th:action="@{/items/update}"
+      th:object="${item}"
+      method="post">
+
+  <input type="hidden"
+         th:field="*{id}">
+
+  <p>
+    Title:
+    <input type="text"
+           th:field="*{title}">
+  </p>
+
+  <p>
+    Description:
+    <input type="text"
+           th:field="*{description}">
+  </p>
+
+  <p>
+    Last Found:
+    <input type="text"
+           th:field="*{lastFound}">
+  </p>
+
+  <button type="submit">
+    Save Changes
+  </button>
+
+</form>
+
+</body>
+</html>

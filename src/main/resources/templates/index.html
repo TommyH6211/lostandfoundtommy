@@ -100,6 +100,11 @@
             </a>
 
             <a class="button"
+               th:href="@{/items/edit/{id}(id=${item.id})}">
+                Modify
+            </a>
+
+            <a class="button"
                th:href="@{/items/delete/{id}(id=${item.id})}">
                 Delete
             </a>
