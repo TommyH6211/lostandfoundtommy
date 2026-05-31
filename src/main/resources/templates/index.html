@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
+//Main page here
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lost & Found Portal</title>
 
+    //Again, styled by ChatGPT because I cannot use CSS
     <style>
 
         body {
@@ -94,6 +97,8 @@
 
         <td>
 
+            //Rightmost column, placed all buttons (modify, delete, mark retrieved/not retrieved) here
+            //Links to different controllers and templates
             <a class="button"
                th:href="@{/items/toggle/{id}(id=${item.id})}"
                th:text="${item.status == 'Not Retrieved'} ? 'Mark Retrieved' : 'Mark Not Retrieved'">

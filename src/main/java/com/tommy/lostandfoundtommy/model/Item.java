@@ -1,5 +1,10 @@
+//Item is a basis for object-oriented programming
+//Blocks below are all actions performed on the lost and found item
+
 package com.tommy.lostandfoundtommy.model;
 
+//Jakarta persistence is a JPA API that links Java classes to databases
+//Entity, Id, and GeneratedValue give a primary key and counting system to the database
 import jakarta.persistence.*;
 
 @Entity
@@ -24,6 +29,7 @@ public class Item {
         this.status = status;
     }
 
+    //Getters and setters, one reads and the other changes stuff, respectively
     public Long getId() {
         return id;
     }

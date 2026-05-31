@@ -1,3 +1,6 @@
+//A collection of methods and functions that determine what controller wants
+//Different functions execute different tasks after user input on the index.html
+
 package com.tommy.lostandfoundtommy.service;
 
 import com.tommy.lostandfoundtommy.model.Item;
@@ -16,27 +19,27 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    // Read all items in the portal
+    //Read all items in the portal
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
-    // Save item (CREATE ONLY)
+    //Save item
     public Item saveItem(Item item) {
         return itemRepository.save(item);
     }
 
-    // Find item by id
+    //Find item by id
     public Optional<Item> getItemById(Long id) {
         return itemRepository.findById(id);
     }
 
-    // Delete item
+    //Delete item from portal chart
     public void deleteItemById(Long id) {
         itemRepository.deleteById(id);
     }
 
-    // Update item (FIXED SAFELY, same structure you had)
+    //Update item after visiting other templates/html pages by buttons
     public void updateItem(Item updatedItem) {
 
         Item existing = itemRepository.findById(updatedItem.getId())
@@ -54,7 +57,7 @@ public class ItemService {
         itemRepository.save(existing);
     }
 
-    // Toggle retrieval status (safe)
+    //Switch the retrieval status between 2 cases: retrieved or no
     public void toggleStatus(Long id) {
 
         Item item = itemRepository.findById(id)

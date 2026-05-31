@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
+//Link html template to use Thymeleaf syntax
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Create Item</title>
 
+    //Styling not done with CSS because I forgot how to, this part assisted by ChatGPT
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,6 +51,8 @@
 
 <h1>Add New Item</h1>
 
+//The form that appears after clicking new item button from portal
+//This is the main part of createItem.html
 <form th:action="@{/items}" method="post" th:object="${item}">
 
     <input type="text"
@@ -69,6 +74,7 @@
 
 </form>
 
+//Link it back to index.html
 <a href="/">Back to Home</a>
 
 </body>

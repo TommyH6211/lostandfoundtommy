@@ -5,8 +5,10 @@
 </head>
 <body>
 
+//This is what will pop up once modify is clicked on the lost and found portal
 <h1>Edit Item</h1>
 
+//A simpler and more minimalistic organization compared to the createItem.html
 <form th:action="@{/items/update}"
       th:object="${item}"
       method="post">
